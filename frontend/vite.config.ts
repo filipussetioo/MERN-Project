@@ -6,6 +6,7 @@ import { viteCommonjs } from '@originjs/vite-plugin-commonjs'
 export default defineConfig({
   plugins: [react(), viteCommonjs()],
   build:{
-    outDir: "../dist"
+    outDir: "../dist",
+    emptyOutDir: true, 
   }
 })
