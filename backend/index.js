@@ -6,6 +6,7 @@ import segmentRoute from "./routes/segmentRoute.js";
 import userRoute from "./routes/userRoute.js";
 import cors from 'cors';
 
+
 const app = express();
 
 app.use(express.json());
