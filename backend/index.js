@@ -10,13 +10,13 @@ const app = express();
 
 app.use(express.json());
 
-app.use(cors());
+// app.use(cors());
 
-// app.use(cors({
-//     origin: 'http://localhost:3000',
-//     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//     allowedHeader: ['Content-Type'],
-// }));
+app.use(cors({
+    origin: 'https://mern-project-rho-ashy.vercel.app/',
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
+    allowedHeader: ['Content-Type'],
+}));
 
 app.use('/summary', summaryRoute);
 app.use('/segment', segmentRoute);
