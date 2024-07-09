@@ -1,19 +1,15 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import axios from 'axios'
 
 const totalData = () => {
-    const [tot, setTot] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [tot, setTot] = useState<any[]>([]);
     useEffect(() => {
-        setLoading(true);
         axios.get(import.meta.env.VITE_APP_URL+'/summary/totalData')
         .then((res)=>{
             setTot(res.data);
-            setLoading(false);
         })
         .catch((err) => {
-            console.log(err);
-            setLoading(false);
+            console.log(err);;
         })
     }, []);
   return (

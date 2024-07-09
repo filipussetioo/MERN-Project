@@ -1,20 +1,16 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import axios from 'axios'
 
 const phoneBrand = () => {
-    const [phoneBrand, setPhoneBrand] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [phoneBrand, setPhoneBrand] = useState<any[]>([]);
     useEffect(() => {
-        setLoading(true);
         axios.get(import.meta.env.VITE_APP_URL+'/segment/phoneBrand')
         .then((res)=>{
             setPhoneBrand(res.data);
-            setLoading(false);
             console.log(res.data);
         })
         .catch((err) => {
             console.log(err);
-            setLoading(false);
         })
     }, []);
     return (

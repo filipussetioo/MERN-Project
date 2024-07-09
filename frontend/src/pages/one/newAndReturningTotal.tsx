@@ -1,20 +1,16 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import axios from 'axios'
 
 const newAndReturningTotal = () => {
-  const [newAndReturningTotal, setNewAndReturning] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [newAndReturningTotal, setNewAndReturning] = useState<{ newUsers: number; returningUsers: number } | null>(null);
   useEffect(() => {
-      setLoading(true);
       axios.get(import.meta.env.VITE_APP_URL+'/summary/newAndReturningTotal')
       .then((res)=>{
           setNewAndReturning(res.data);
-          setLoading(false);
           console.log(res.data);
       })
       .catch((err) => {
           console.log(err);
-          setLoading(false);
       })
   }, []);
   return (
@@ -28,8 +24,8 @@ const newAndReturningTotal = () => {
             </thead>
             <tbody>
               <tr className='h-8'>
-                  <td className='border border-slate-700 rounded-md text-center'>{newAndReturningTotal.newUsers}</td>
-                  <td className='border border-slate-700 rounded-md text-center'>{newAndReturningTotal.returningUsers}</td>
+                  <td className='border border-slate-700 rounded-md text-center'>{newAndReturningTotal != null ? newAndReturningTotal.newUsers : ''}</td>
+                  <td className='border border-slate-700 rounded-md text-center'>{newAndReturningTotal != null ? newAndReturningTotal.returningUsers : ''}</td>
               </tr>
             </tbody>
         </table>

@@ -1,20 +1,16 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import axios from 'axios'
 
 const uniqueUsersPerDay = () => {
-  const [uniquePerDay, setUniquePerDay] = useState([]);
-  const [loading, setLoading] = useState(false);
+  const [uniquePerDay, setUniquePerDay] = useState<any[]>([]);
   useEffect(() => {
-      setLoading(true);
       axios.get(import.meta.env.VITE_APP_URL+'/summary/uniqueUsersPerDay')
       .then((res)=>{
           setUniquePerDay(res.data);
-          setLoading(false);
           console.log(res.data);
       })
       .catch((err) => {
           console.log(err);
-          setLoading(false);
       })
   }, []);
   return (

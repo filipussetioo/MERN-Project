@@ -1,20 +1,16 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import axios from 'axios'
 
 const busiestDay = () => {
-    const [sumBusy, setSumBusy] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [sumBusy, setSumBusy] = useState<{ totalLogins: number; date: String } | null>(null);
     useEffect(() => {
-        setLoading(true);
         axios.get(import.meta.env.VITE_APP_URL+'/summary/busiestDay')
         .then((res)=>{
             setSumBusy(res.data);
-            setLoading(false);
             console.log(import.meta.env.VITE_APP_URL);
         })
         .catch((err) => {
             console.log(err);
-            setLoading(false);
         })
     }, []);
   return (
@@ -28,8 +24,8 @@ const busiestDay = () => {
             </thead>
             <tbody>
                 <tr className='h-8'>
-                    <td className='border border-slate-700 rounded-md text-center'>{sumBusy.totalLogins}</td>
-                    <td className='border border-slate-700 rounded-md text-center'>{sumBusy.date}</td>
+                    <td className='border border-slate-700 rounded-md text-center'>{sumBusy != null ? sumBusy.totalLogins : ''}</td>
+                    <td className='border border-slate-700 rounded-md text-center'>{sumBusy != null ?sumBusy.date : ''}</td>
                 </tr>
             </tbody>
         </table>

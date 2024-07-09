@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 const TopUserDataByLocation = () => {
-  const [topFive, setTopFive] = useState([]);
+  const [topFive, setTopFive] = useState<any[]>([]);
 
   useEffect(() => {
     axios.get(import.meta.env.VITE_APP_URL + '/user/top5Users')
@@ -30,7 +30,7 @@ const TopUserDataByLocation = () => {
               <td className='border border-slate-700 rounded-md text-center'>{data.location}</td>
               <td className='border border-slate-700 rounded-md'>
                 <ul>
-                  {data.top5Users.map((userdata, idxuser) => (
+                  {data.top5Users.map((userdata: { userData: { Email: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; Name: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; NoTelp: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }; visitCount: string | number | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | null | undefined; }, idxuser: React.Key | null | undefined) => (
                     <li key={idxuser} className='mb-2'>
                       <p>Email: {userdata.userData.Email}</p>
                       <p>Name: {userdata.userData.Name}</p>

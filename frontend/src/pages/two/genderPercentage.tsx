@@ -1,21 +1,17 @@
-import React, {useEffect, useState} from 'react'
+import {JSXElementConstructor, Key, ReactElement, ReactNode, ReactPortal, useEffect, useState} from 'react'
 import axios from 'axios'
 
 
 const genderPercentage = () => {
-    const [genderPercentage, setgenderPercentage] = useState([]);
-    const [loading, setLoading] = useState(false);
+    const [genderPercentage, setgenderPercentage] = useState<any[]>([]);;
     useEffect(() => {
-        setLoading(true);
         axios.get(import.meta.env.VITE_APP_URL+'/segment/genderPercentage')
         .then((res)=>{
             setgenderPercentage(res.data);
-            setLoading(false);
             console.log(res.data);
         })
         .catch((err) => {
             console.log(err);
-            setLoading(false);
         })
     }, []);
     return (
@@ -28,7 +24,7 @@ const genderPercentage = () => {
                   </tr>
               </thead>
               <tbody>
-                {genderPercentage.map((data,idx) => 
+                {genderPercentage.map((data: { gender: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; percentage: string | number | boolean | ReactElement<any, string | JSXElementConstructor<any>> | Iterable<ReactNode> | ReactPortal | null | undefined; },idx: Key | null | undefined) => 
                 <tr key={idx} className='h-8'>
                     <td className='border border-slate-700 rounded-md text-center'>{data.gender}</td>
                     <td className='border border-slate-700 rounded-md text-center'>{data.percentage}</td>
