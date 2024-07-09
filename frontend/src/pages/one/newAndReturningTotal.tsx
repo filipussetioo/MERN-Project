@@ -6,7 +6,7 @@ const newAndReturningTotal = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
       setLoading(true);
-      axios.get('http://localhost:3000/summary/newAndReturningTotal')
+      axios.get(import.meta.env.VITE_APP_URL+'/summary/newAndReturningTotal')
       .then((res)=>{
           setNewAndReturning(res.data);
           setLoading(false);

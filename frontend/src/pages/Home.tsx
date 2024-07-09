@@ -46,13 +46,34 @@ const Home = () => {
           <div className='flex flex-row'>
             <Link to={`segment/agePercentage`}>
                 <a className="bg-[#a91079] hover:bg-opacity-80 text-white m-2 p-4 rounded-xl text-sm font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl inline-block text-center">
-                    Total Data All
+                    Age Group Segmentation
+                </a>
+            </Link>
+            <Link to={`segment/genderPercentage`}>
+                <a className="bg-[#a91079] hover:bg-opacity-80 text-white m-2 p-4 rounded-xl text-sm font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl inline-block text-center">
+                    Gender Segmentation
+                </a>
+            </Link>
+            <Link to={`segment/phoneBrand`}>
+                <a className="bg-[#a91079] hover:bg-opacity-80 text-white m-2 p-4 rounded-xl text-sm font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl inline-block text-center">
+                    Phone Brand Segmentation
+                </a>
+            </Link>
+            <Link to={`segment/digitalInterest`}>
+                <a className="bg-[#a91079] hover:bg-opacity-80 text-white m-2 p-4 rounded-xl text-sm font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl inline-block text-center">
+                    Digital Interest Segementation
                 </a>
             </Link>
           </div>
           
           <p className="text-lg lg:text-xl text-white mb-8">API 3</p>
-          
+          <div className='flex flex-row'>
+            <Link to={`user/top5Users`}>
+                <a className="bg-[#a91079] hover:bg-opacity-80 text-white m-2 p-4 rounded-xl text-sm font-semibold transition duration-300 ease-in-out transform hover:scale-105 hover:shadow-xl inline-block text-center">
+                    Top 5 Users By Location
+                </a>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

@@ -6,7 +6,7 @@ const newAndReturningPerDay = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
       setLoading(true);
-      axios.get('http://localhost:3000/summary/newAndReturningPerDay')
+      axios.get(import.meta.env.VITE_APP_URL+'/summary/newAndReturningPerDay')
       .then((res)=>{
           setNewAndReturning(res.data);
           setLoading(false);

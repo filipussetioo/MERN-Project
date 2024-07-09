@@ -6,7 +6,7 @@ const uniqueUsersAll = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
       setLoading(true);
-      axios.get('http://localhost:3000/summary/uniqueUsersAll')
+      axios.get(import.meta.env.VITE_APP_URL+'/summary/uniqueUsersAll')
       .then((res)=>{
           setUniqueAll(res.data);
           setLoading(false);

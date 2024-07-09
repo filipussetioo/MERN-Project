@@ -9,6 +9,9 @@ import BusiestDay from './pages/one/busiestDay'
 import TotalData from './pages/one/totalData'
 import AgePercentage from './pages/two/agePercentage'
 import GenderPercentage from './pages/two/genderPercentage'
+import PhoneBrand from './pages/two/phoneBrand'
+import DigitalInterest from './pages/two/digitalInterest'
+import Top5Users from './pages/three/topUserDataByLocation'
 
 const App = () => {
   return (
@@ -25,8 +28,11 @@ const App = () => {
       {/* API 2 Routes */}
        <Route path='/segment/agePercentage' element={<AgePercentage/>} />
        <Route path='/segment/genderPercentage' element={<GenderPercentage/>} />
-       <Route path='/summary/phoneBrand' element={<NewAndReturningPerDay/>} />
-       <Route path='/summary/digitalInterest' element={<NewAndReturningTotal/>} />
+       <Route path='/segment/phoneBrand' element={<PhoneBrand/>} />
+       <Route path='/segment/digitalInterest' element={<DigitalInterest/>} />
+       {/* API 3 Routes */}
+       <Route path='/user/detail/:email' element={<DigitalInterest/>} />
+       <Route path='/user/top5Users' element={<Top5Users/>} />
     </Routes>
   )
 }

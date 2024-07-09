@@ -6,11 +6,11 @@ const busiestDay = () => {
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
-        axios.get('http://localhost:3000/summary/busiestDay')
+        axios.get(import.meta.env.VITE_APP_URL+'/summary/busiestDay')
         .then((res)=>{
             setSumBusy(res.data);
             setLoading(false);
-            console.log(res.data);
+            console.log(import.meta.env.VITE_APP_URL);
         })
         .catch((err) => {
             console.log(err);

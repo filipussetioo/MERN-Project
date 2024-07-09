@@ -130,7 +130,7 @@ router.get('/phoneBrand', async (req, res) => {
                 input: '$genderCounts',
                 as: 'gender',
                 in: {
-                  gender: '$$gender.gender',
+                  brand: '$$gender.gender',
                   percentage: {
                     $multiply: [{ $divide: ['$$gender.count', '$totalUniqueUsers'] }, 100 ]}
                 }
@@ -152,7 +152,7 @@ router.get('/phoneBrand', async (req, res) => {
 router.get('/digitalInterest', async (req, res) => {
     try {
         
-        const phoneBrand = await Summary.aggregate([
+        const digitalInterest = await Summary.aggregate([
         {
           $group: {
             _id: '$Digital Interest', // Group by gender
@@ -174,12 +174,12 @@ router.get('/digitalInterest', async (req, res) => {
         {
           $project: {
             _id: 0,
-            phoneBrands: {
+            digitalInterest: {
               $map: {
                 input: '$genderCounts',
                 as: 'gender',
                 in: {
-                  gender: '$$gender.gender',
+                  interest: '$$gender.gender',
                   percentage: {
                     $multiply: [{ $divide: ['$$gender.count', '$totalUniqueUsers'] }, 100 ]}
                 }
@@ -190,7 +190,7 @@ router.get('/digitalInterest', async (req, res) => {
       ]);
   
       // Return the gender percentages
-      res.json(phoneBrand.length > 0 ? phoneBrand[0].phoneBrands : []);
+      res.json(digitalInterest.length > 0 ? digitalInterest[0].digitalInterest : []);
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: 'Server Error' });

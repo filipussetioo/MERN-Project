@@ -6,7 +6,7 @@ const uniqueUsersPerDay = () => {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
       setLoading(true);
-      axios.get('http://localhost:3000/summary/uniqueUsersPerDay')
+      axios.get(import.meta.env.VITE_APP_URL+'/summary/uniqueUsersPerDay')
       .then((res)=>{
           setUniquePerDay(res.data);
           setLoading(false);

@@ -6,7 +6,7 @@ const totalData = () => {
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
-        axios.get('http://localhost:3000/summary/totalData')
+        axios.get(import.meta.env.VITE_APP_URL+'/summary/totalData')
         .then((res)=>{
             setTot(res.data);
             setLoading(false);

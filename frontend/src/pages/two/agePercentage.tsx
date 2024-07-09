@@ -6,7 +6,7 @@ const agePercentage = () => {
     const [loading, setLoading] = useState(false);
     useEffect(() => {
         setLoading(true);
-        axios.get('http://localhost:3000/segment/agePercentage')
+        axios.get(import.meta.env.VITE_APP_URL+'/segment/agePercentage')
         .then((res)=>{
             setagePercentage(res.data);
             setLoading(false);
